@@ -1,36 +1,28 @@
-# Low-Power CMOS Temperature Sensor with Digital Thermostat Control
+# Low-Power CMOS Temperature Sensor with Monte-Carlo Verified Analog Front-End
 
-*The purpose of this project is to design and simulate a low-power CMOS temperature-sensing front-end with a digital on/off thermostat controller for on-chip thermal monitoring applications.*
+*The purpose of this project is to design a low-power CMOS temperature-sensing front-end with a digital on/off thermostat controller, verified for robustness using Monte Carlo and corner analysis.*
 
 ---
 
-## Introduction
-This project presents a **CMOS-based temperature sensor** designed using **analog front-end circuits** in Cadence Virtuoso. The sensor converts temperature variations into a voltage signal, which is processed by a **digital thermostat controller** to generate an on/off control output. The design emphasizes **low-power operation**, making it suitable for **on-chip thermal monitoring** in integrated circuits.
+## Overview
+This project implements a **CMOS temperature sensor** with a **digital thermostat control** for threshold-based switching. The analog front-end converts temperature variations into a voltage signal, which is then compared to a reference to generate a digital output. The design emphasizes **low-power operation** suitable for on-chip thermal monitoring in integrated circuits.
 
 ---
 
 ## Design Methodology
-- Designed a **CMOS temperature-sensing front-end** using basic analog building blocks  
-- Utilized temperature-dependent MOS characteristics for sensing  
-- Implemented a **threshold-based digital controller** for temperature switching  
-- Optimized biasing for **low static power consumption**  
-- Verified robustness using **corner and Monte Carlo analysis**
-
----
-
-## System Description
-- The analog front-end generates a voltage proportional to temperature  
-- A reference threshold determines the thermostat switching point  
-- Digital output switches ON/OFF based on temperature comparison  
-- Suitable for thermal protection and temperature-aware control systems  
+- Designed the **CMOS analog front-end** using standard **NMOS and PMOS devices**  
+- Implemented a **digital on/off thermostat controller** for threshold detection  
+- Performed **parametric analysis** to study circuit behavior under varying temperature and device parameters  
+- Conducted **Monte Carlo simulations** to evaluate performance variations due to process mismatch  
+- Verified robustness across **process corners (TT, FF, SS)**  
 
 ---
 
 ## Tools & Technologies
 - **EDA Tool:** Cadence Virtuoso  
 - **Simulator:** Spectre  
-- **Design Domain:** CMOS Analog Front-End Design  
-- **Concepts Used:** Temperature sensing, biasing, comparators, low-power design  
+- **Design Domain:** CMOS Analog Circuit Design  
+- **Concepts Used:** Temperature sensing, comparator-based control, low-power analog design, Monte Carlo analysis  
 
 ---
 
@@ -38,43 +30,46 @@ This project presents a **CMOS-based temperature sensor** designed using **analo
 - **Operating Temperature Range:** 0°C – 100°C  
 - **Supply Voltage:** 1.8 V  
 - **Output Sensitivity:** ~1–2 mV/°C (typical)  
-- **Power Consumption:** Low static bias current operation  
-- **Variability Analysis:** Monte Carlo and process corner simulations performed  
+- **Power Consumption:** Low static bias current  
+- **Monte Carlo Analysis:** 50 runs; confirmed limited spread of output voltage  
+- **Corner Simulations:** TT, FF, SS  
 
 ---
 
 ## Simulation & Verification
-- Performed **DC and transient simulations** across temperature range  
-- Conducted **Monte Carlo analysis** to study mismatch effects  
-- Verified operation under **process corners (TT, FF, SS)**  
-- Analyzed temperature-dependent output slope and switching behavior  
+- Conducted **DC and transient simulations** to evaluate temperature response  
+- Verified **digital output switching** at the defined threshold  
+- Performed **Monte Carlo analysis** to ensure reliability under mismatch  
+- Simulated **process corners** to check performance variation  
 
 ---
 
 ## Output Results
-Simulation results demonstrate a consistent temperature-dependent voltage response and reliable digital switching behavior at the defined threshold. Monte Carlo and corner analyses confirm acceptable robustness against process and device variations.
+Simulation results demonstrate:
+- Consistent analog output voltage proportional to temperature  
+- Reliable digital thermostat switching at the threshold point  
+- Limited variation under Monte Carlo analysis and process corners  
 
-<!-- Add simulation plots here -->
-<!-- Example:
-![Temperature Response](images/temp_response.png)
--->
+<!-- Add images of simulation plots -->
+<!-- Example: ![Temperature Response](images/temp_response.png) -->
 
 ---
 
 ## How to Reproduce
-1. Open the design in **Cadence Virtuoso**  
-2. Launch **Spectre simulation environment**  
+1. Open the project in **Cadence Virtuoso**  
+2. Launch **Spectre simulator**  
 3. Set temperature sweep from **0°C to 100°C**  
-4. Run DC and transient analyses  
-5. Perform corner and Monte Carlo simulations  
-6. Observe analog output slope and digital control signal  
+4. Run **DC and transient simulations**  
+5. Perform **Monte Carlo simulations** (50 runs)  
+6. Conduct **process corner simulations** (TT, FF, SS)  
+7. Observe analog output slope and digital switching output  
 
 ---
 
 ## Future Work
 - Calibration for improved accuracy  
 - Integration with **ADC for digital temperature readout**  
-- Ultra-low-power optimization for IoT applications  
+- Ultra-low-power optimization for IoT/SoC applications  
 - Layout implementation and post-layout verification  
 
 ---
@@ -83,3 +78,4 @@ Simulation results demonstrate a consistent temperature-dependent voltage respon
 **Nischal Agarwal**  
 Electronics and Communication Engineering  
 Birla Institute of Technology, Mesra
+
